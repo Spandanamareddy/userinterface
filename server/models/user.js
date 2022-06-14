@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-
-
 const userSchema = new mongoose.Schema({
   UserId: { type: String, unique: true, required: true},
   FirstName: {type: String, required: true},
@@ -11,8 +9,6 @@ const userSchema = new mongoose.Schema({
 
 
 const User = mongoose.model("User", userSchema);
-
-
 async function register(UserId, FirstName, LastName, password) {
   const user = await getUser(UserId);
   if(user) throw Error('Please try for a new UserId');
